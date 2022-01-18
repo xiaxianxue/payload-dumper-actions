@@ -20,6 +20,9 @@ jobs:
         run: |
           wget -O ./tmp/ROM.zip -i url.txt
           unzip -o ./tmp/ROM.zip -d tmp/ "payload.bin"
+
+      - name: Dump payload.bin
+        run: |
           ./payload-dumper-go -p boot -o output ./tmp/payload.bin
           rm -rf tmp/
           rm payload-dumper-go
